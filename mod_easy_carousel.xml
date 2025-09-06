@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="module" version="5.3" client="site" method="upgrade">
+    <name>Easy Carousel</name>
+    <author>Weblynx</author>
+    <creationDate>September 2025</creationDate>
+    <authorEmail>support@weblynx.co</authorEmail>
+    <authorUrl>https://weblynx.co</authorUrl>
+    <copyright>Copyright (C) 2025 Weblynx. All rights reserved.</copyright>
+    <license>GNU GPL v3</license>
+    <version>1.0.2</version>
+    <description>Displays videos from multiple video sites in an endless carousel using Slick Slider.</description>
+
+    <files>
+        <filename module="mod_easy_carousel">mod_easy_carousel.php</filename>
+        <filename>index.html</filename>
+        <folder>tmpl</folder>
+        <folder>media</folder>
+    </files>
+
+    <media destination="mod_easy_carousel" folder="media">
+        <folder>css</folder>
+        <folder>js</folder>
+    </media>
+
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+                <field
+                    name="video_links"
+                    type="subform"
+                    label="Video Links"
+                    description="Add video URLs (e.g., YouTube, Vimeo) to display in the carousel. Drag to reorder."
+                    multiple="true"
+                    layout="joomla.form.field.subform.repeatable-table"
+                    >
+                    <form>
+                        <field
+                            name="video_url"
+                            type="text"
+                            label="Video URL"
+                            description="Enter the video URL (e.g., https://www.youtube.com/watch?v=VIDEO_ID)"
+                            filter="raw"
+                        />
+                    </form>
+                </field>
+                <field
+                    name="slides_to_show"
+                    type="number"
+                    label="Slides to Show"
+                    description="Number of videos to show at once."
+                    default="3"
+                    min="1"
+                    max="10"
+                />
+                <field
+                    name="autoplay"
+                    type="radio"
+                    label="Autoplay"
+                    description="Enable autoplay for the carousel."
+                    default="1"
+                    >
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </field>
+            </fieldset>
+            <fieldset name="advanced">
+                <field
+                    name="prepare_content"
+                    type="radio"
+                    label="Prepare Content"
+                    description="Process video embeds with Joomla content plugins."
+                    default="1"
+                    >
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </field>
+            </fieldset>
+        </fields>
+    </config>
+</extension>
